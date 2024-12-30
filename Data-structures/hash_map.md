@@ -9,9 +9,9 @@ Time Complexity
 
 Example in Python
 
-python
+```python
 
 hash_map = {}  # Initialize a hash map
 hash_map["name"] = "Alice"
 print(hash_map["name"])  # Output: Alice
-
+```

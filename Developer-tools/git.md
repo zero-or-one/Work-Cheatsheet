@@ -76,3 +76,28 @@ Veryfy thr remote
 ```sh
 git remote -v
 ```
+
+### 12. Large File System (LFS)
+Helps manage large files in a Git repository efficiently. It works by storing pointers to the large files in the Git repository itself, while storing the actual file contents on a separate server. 
+
+Install Git LFS:
+```Bash
+
+git lfs install
+```
+Create a .gitattributes file in your repository to specify which file types should be tracked by Git LFS. \
+For example, to track all files with the .dat extension, you would add the following line to your .gitattributes file:
+```
+*.dat filter=lfs
+```
+
+Once you have configured Git LFS, you can add and commit large files to your repository as usual. 
+
+### 13. Pull Requestion in GitHub (PL)
+1. Create a new branch for your changes.
+2. Make your changes to the branch.
+3. Push your changes to the remote branch on GitHub.
+4. On GitHub, navigate to your repository and click on the "Pull requests" tab.
+5. Click on the button to "Create pull request".
+6. Enter a title and description for your pull request.
+7. Click on the "Create pull request" button.

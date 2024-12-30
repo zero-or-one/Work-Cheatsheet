@@ -10,11 +10,11 @@ Time Complexity
 
 Example in Python
 
-python
+```python
 
 stack = []  # Initialize a stack
 
 stack.append(1)  # Push
 stack.append(2)
 print(stack.pop())  # Pop -> Output: 2
-
+```

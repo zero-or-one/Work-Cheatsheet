@@ -15,7 +15,7 @@ Time Complexity
 
 Example in Python
 
-python
+```python
 
 class Node:
     def __init__(self, data):
@@ -41,3 +41,4 @@ ll = LinkedList()
 ll.append(1)
 ll.append(2)
 ll.append(3)
+```
