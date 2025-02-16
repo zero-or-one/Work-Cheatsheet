@@ -1,9 +1,7 @@
-# Bash
-## Definition
-Bash (Bourne Again SHell) is a Unix shell and command language written as a free software replacement for the Bourne shell. Bash commands are used to interact with the operating system to perform a variety of tasks, such as file manipulation, program execution, and system administration.
+## Def
+Bash: (Bourne Again SHell)
 
-
-## 📂 Basic Bash Commands
+## Commands
 
 ### 1. **`ls`** – List Directory Contents  
 Displays the files and directories in the current or specified directory.
