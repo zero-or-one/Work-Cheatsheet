@@ -1,12 +1,7 @@
-# Git 
+## Definititon
+Git is a distributed version control system for tracking changes in source code during software development. It allows multiple developers to work on a project simultaneously.
 
-## Definition
-Git is a distributed version control system used to track changes in source code during software development. It allows multiple developers to work on a project simultaneously.
-
-## Installation
-Follow the instructions on the [official Git website](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-
-## Basic Commands
+## Commands
 
 ### 1. Initialize a Repository
 ```sh
