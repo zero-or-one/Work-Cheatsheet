@@ -1,9 +1,11 @@
-## Def
+## Definition
+
 Bash: (Bourne Again SHell)
 
 ## Commands
 
-### 1. **`ls`** – List Directory Contents  
+### 1. **`ls`** – List Directory Contents
+
 Displays the files and directories in the current or specified directory.
 
 ```bash
@@ -11,9 +13,11 @@ ls            # Lists all files and directories
 ls -l         # Lists with detailed information (permissions, size, etc.)
 ls -a         # Includes hidden files (those starting with .)
 ```
+
 ---
 
-### 2. **`cd`** – Change Directory  
+### 2. **`cd`** – Change Directory
+
 Changes the current working directory to the specified path.
 
 ```bash
@@ -21,9 +25,11 @@ cd /home/user/Documents    # Navigates to Documents folder
 cd ..                      # Moves up one directory level
 cd ~                       # Moves to the home directory
 ```
+
 ---
 
-### 3. **`pwd`** – Print Working Directory  
+### 3. **`pwd`** – Print Working Directory
+
 Prints the absolute path of the current working directory.
 
 ```bash
@@ -32,7 +38,8 @@ pwd   # Displays the full path of your current location
 
 ---
 
-### 4. **`cp`** – Copy Files or Directories  
+### 4. **`cp`** – Copy Files or Directories
+
 Copies files or directories from one location to another.
 
 ```bash
@@ -42,7 +49,8 @@ cp -r folder/ /path/to/destination/        # Copies a directory recursively
 
 ---
 
-### 5. **`mv`** – Move or Rename Files/Directories  
+### 5. **`mv`** – Move or Rename Files/Directories
+
 Moves files or directories to a new location or renames them.
 
 ```bash
@@ -52,7 +60,8 @@ mv file.txt /path/to/destination/          # Moves a file
 
 ---
 
-### 6. **`rm`** – Remove Files or Directories  
+### 6. **`rm`** – Remove Files or Directories
+
 Deletes files or directories.
 
 ```bash
@@ -60,11 +69,13 @@ rm file.txt            # Deletes a file
 rm -r folder/          # Deletes a directory and its contents recursively
 rm -i file.txt         # Asks for confirmation before deletion
 ```
+
 **⚠️ Warning:** Be careful with `rm -r`, as it deletes everything inside a directory!
 
 ---
 
-### 7. **`echo`** – Print Text to Terminal or Write to a File  
+### 7. **`echo`** – Print Text to Terminal or Write to a File
+
 Displays a line of text or writes output to a file.
 
 ```bash
@@ -75,7 +86,8 @@ echo "Append this" >> file.txt           # Appends text to a file
 
 ---
 
-### 8. **`cat`** – Concatenate and Display File Content  
+### 8. **`cat`** – Concatenate and Display File Content
+
 Displays the content of a file or combines multiple files into one.
 
 ```bash
@@ -85,7 +97,8 @@ cat file1.txt file2.txt > merged.txt  # Combines files into one
 
 ---
 
-### 9. **`grep`** – Search for Patterns in Files  
+### 9. **`grep`** – Search for Patterns in Files
+
 Searches for specific text patterns within files.
 
 ```bash
@@ -96,7 +109,8 @@ grep -r "keyword" /path/to/directory   # Searches recursively in a directory
 
 ---
 
-### 10. **`chmod`** – Change File Permissions  
+### 10. **`chmod`** – Change File Permissions
+
 Modifies the access permissions of a file or directory.
 
 ```bash
@@ -106,6 +120,7 @@ chmod -r file.txt                     # Removes read permission
 ```
 
 **Common Modes:**
+
 - `777` – Full permissions for everyone.
 - `755` – Owner can read, write, and execute; others can only read and execute.
 - `644` – Owner can read and write; others can only read.
