@@ -1,233 +1,559 @@
-# Algorithm Patterns Cheat Sheet
+# Algorithm Templates and Explanations
 
-## Table of Contents
-
-- [Sliding Window](#sliding-window)
-- [Two Pointers](#two-pointers)
-- [Fast & Slow Pointers](#fast--slow-pointers)
-- [Merge Intervals](#merge-intervals)
-- [Cyclic Sort](#cyclic-sort)
-- [In-place Reversal of a Linked List](#in-place-reversal-of-a-linked-list)
-- [Breadth-First Search (BFS)](#breadth-first-search-bfs)
-- [Depth-First Search (DFS)](#depth-first-search-dfs)
-- [Binary Search](#binary-search)
-- [Topological Sort](#topological-sort)
-- [Dijkstra’s Algorithm](#dijkstras-algorithm)
-- [Bellman-Ford Algorithm](#bellman-ford-algorithm)
-- [Floyd Warshall Algorithm](#floyd-warshall-algorithm)
-- [References](#references)
-
----
-
-## Sliding Window
-
-Used to optimize problems involving contiguous subarrays or substrings.
-
-**Common Problems:**
-
-- Maximum sum of a subarray of size `k`
-- Longest substring without repeating characters
-
-**Time Complexity:** O(N)
-
-```python
-# Example: Find the maximum sum of a subarray of size k
-
-def max_subarray_sum(arr, k):
-    max_sum, window_sum = 0, 0
-    left = 0
-    for right in range(len(arr)):
-        window_sum += arr[right]
-        if right >= k - 1:
-            max_sum = max(max_sum, window_sum)
-            window_sum -= arr[left]
-            left += 1
-    return max_sum
-```
-
----
+This document contains code templates for common algorithms and data structures, along with brief explanations and complexity analysis.
 
 ## Two Pointers
 
-Useful for searching pairs in a sorted array or linked list problems.
-
-**Common Problems:**
-
-- Pair with target sum
-- Removing duplicates from a sorted array
-
-**Time Complexity:** O(N)
+### One Input, Opposite Ends
 
 ```python
-# Example: Two Sum (sorted array)
+def fn(arr):
+    left = ans = 0
+    right = len(arr) - 1
 
-def two_sum(arr, target):
-    left, right = 0, len(arr) - 1
     while left < right:
-        current_sum = arr[left] + arr[right]
-        if current_sum == target:
-            return [left, right]
-        elif current_sum < target:
+        # do some logic here with left and right
+        if CONDITION:
             left += 1
         else:
             right -= 1
-    return []
+
+    return ans
 ```
 
----
+**Explanation:** This pattern is useful for problems where you need to find a pair of elements in a sorted array that satisfy a certain condition. The pointers start at opposite ends and move towards each other.
 
-## Fast & Slow Pointers
+**Time Complexity:** O(n)
+**Space Complexity:** O(1)
 
-Used to detect cycles in linked lists or determine the middle of a list.
-
-**Common Problems:**
-
-- Detect cycle in a linked list
-- Find the middle of a linked list
-
-**Time Complexity:** O(N)
+### Two Inputs, Exhaust Both
 
 ```python
-# Example: Detect cycle in a linked list
+def fn(arr1, arr2):
+    i = j = ans = 0
 
-def has_cycle(head):
-    slow, fast = head, head
+    while i < len(arr1) and j < len(arr2):
+        # do some logic here
+        if CONDITION:
+            i += 1
+        else:
+            j += 1
+
+    while i < len(arr1):
+        # do logic
+        i += 1
+
+    while j < len(arr2):
+        # do logic
+        j += 1
+
+    return ans
+```
+
+**Explanation:** This pattern is used when you need to process two sorted arrays simultaneously. The pointers move through each array based on the condition.
+
+**Time Complexity:** O(n + m)
+**Space Complexity:** O(1)
+
+## Sliding Window
+
+```python
+def fn(arr):
+    left = ans = curr = 0
+
+    for right in range(len(arr)):
+        # do logic here to add arr[right] to curr
+
+        while WINDOW_CONDITION_BROKEN:
+            # remove arr[left] from curr
+            left += 1
+
+        # update ans
+
+    return ans
+```
+
+**Explanation:** The sliding window technique is used to find subarrays or substrings that satisfy a certain condition. The window expands and contracts based on the condition.
+
+**Time Complexity:** O(n)
+**Space Complexity:** O(1)
+
+## Build a Prefix Sum
+
+```python
+def fn(arr):
+    prefix = [arr[0]]
+    for i in range(1, len(arr)):
+        prefix.append(prefix[-1] + arr[i])
+
+    return prefix
+```
+
+**Explanation:** Prefix sums are useful for quickly calculating the sum of any subarray. The prefix array stores the cumulative sum up to each index.
+
+**Time Complexity:** O(n)
+**Space Complexity:** O(n)
+
+## Efficient String Building
+
+```python
+def fn(arr):
+    ans = []
+    for c in arr:
+        ans.append(c)
+
+    return "".join(ans)
+```
+
+**Explanation:** This pattern is used to efficiently build strings by appending characters to a list and then joining them.
+
+**Time Complexity:** O(n)
+**Space Complexity:** O(n)
+
+## Linked List: Fast and Slow Pointer
+
+```python
+def fn(head):
+    slow = head
+    fast = head
+    ans = 0
+
     while fast and fast.next:
+        # do logic
         slow = slow.next
         fast = fast.next.next
-        if slow == fast:
-            return True
-    return False
+
+    return ans
 ```
 
----
+**Explanation:** The fast and slow pointer technique is used to find the middle of a linked list or detect cycles.
 
-## Merge Intervals
+**Time Complexity:** O(n)
+**Space Complexity:** O(1)
 
-Used for interval merging problems.
-
-**Common Problems:**
-
-- Merge overlapping intervals
-- Insert an interval into a sorted list
-
-**Time Complexity:** O(N log N)
+## Reversing a Linked List
 
 ```python
-# Example: Merge overlapping intervals
+def fn(head):
+    curr = head
+    prev = None
+    while curr:
+        next_node = curr.next
+        curr.next = prev
+        prev = curr
+        curr = next_node
 
-def merge_intervals(intervals):
-    intervals.sort(key=lambda x: x[0])
-    merged = []
-    for interval in intervals:
-        if not merged or merged[-1][1] < interval[0]:
-            merged.append(interval)
-        else:
-            merged[-1][1] = max(merged[-1][1], interval[1])
-    return merged
+    return prev
 ```
 
----
+**Explanation:** This pattern is used to reverse a linked list in-place.
 
-## Breadth-First Search (BFS)
+**Time Complexity:** O(n)
+**Space Complexity:** O(1)
 
-Used in shortest path problems or level order traversal.
-
-**Time Complexity:** O(V + E)
+## Find Number of Subarrays That Fit an Exact Criteria
 
 ```python
-# Example: BFS traversal
+from collections import defaultdict
+
+def fn(arr, k):
+    counts = defaultdict(int)
+    counts[0] = 1
+    ans = curr = 0
+
+    for num in arr:
+        # do logic to change curr
+        ans += counts[curr - k]
+        counts[curr] += 1
+
+    return ans
+```
+
+**Explanation:** This pattern is used to find the number of subarrays that sum to a specific value using a hash map to store prefix sums.
+
+**Time Complexity:** O(n)
+**Space Complexity:** O(n)
+
+## Monotonic Stack
+
+```python
+def fn(arr):
+    stack = []
+    ans = 0
+
+    for num in arr:
+        # for monotonic decreasing, just flip the > to <
+        while stack and stack[-1] > num:
+            # do logic
+            stack.pop()
+        stack.append(num)
+
+    return ans
+```
+
+**Explanation:** A monotonic stack is used to maintain a stack of elements in increasing or decreasing order, useful for problems involving next greater/smaller elements.
+
+**Time Complexity:** O(n)
+**Space Complexity:** O(n)
+
+## Binary Tree: DFS (Recursive)
+
+```python
+def dfs(root):
+    if not root:
+        return
+
+    ans = 0
+
+    # do logic
+    dfs(root.left)
+    dfs(root.right)
+    return ans
+```
+
+**Explanation:** Recursive DFS is used to traverse a binary tree, performing some logic at each node.
+
+**Time Complexity:** O(n)
+**Space Complexity:** O(h) (where h is the height of the tree)
+
+## Binary Tree: DFS (Iterative)
+
+```python
+def dfs(root):
+    stack = [root]
+    ans = 0
+
+    while stack:
+        node = stack.pop()
+        # do logic
+        if node.left:
+            stack.append(node.left)
+        if node.right:
+            stack.append(node.right)
+
+    return ans
+```
+
+**Explanation:** Iterative DFS uses a stack to simulate the recursive call stack, useful for avoiding recursion depth limits.
+
+**Time Complexity:** O(n)
+**Space Complexity:** O(h)
+
+## Binary Tree: BFS
+
+```python
 from collections import deque
 
-def bfs(graph, start):
-    queue = deque([start])
-    visited = set([start])
+def fn(root):
+    queue = deque([root])
+    ans = 0
+
     while queue:
-        node = queue.popleft()
-        print(node, end=' ')
-        for neighbor in graph[node]:
-            if neighbor not in visited:
-                visited.add(neighbor)
-                queue.append(neighbor)
+        current_length = len(queue)
+        # do logic for current level
+
+        for _ in range(current_length):
+            node = queue.popleft()
+            # do logic
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+
+    return ans
 ```
 
----
+**Explanation:** BFS is used to traverse a binary tree level by level, useful for problems involving level-order traversal.
 
-## Depth-First Search (DFS)
+**Time Complexity:** O(n)
+**Space Complexity:** O(n)
 
-Used in tree traversals, cycle detection, and pathfinding.
-
-**Time Complexity:** O(V + E)
+## Graph: DFS (Recursive)
 
 ```python
-# Example: DFS traversal
+def fn(graph):
+    def dfs(node):
+        ans = 0
+        # do some logic
+        for neighbor in graph[node]:
+            if neighbor not in seen:
+                seen.add(neighbor)
+                ans += dfs(neighbor)
 
-def dfs(graph, node, visited=set()):
-    if node in visited:
-        return
-    print(node, end=' ')
-    visited.add(node)
-    for neighbor in graph[node]:
-        dfs(graph, neighbor, visited)
+        return ans
+
+    seen = {START_NODE}
+    return dfs(START_NODE)
 ```
 
----
+**Explanation:** Recursive DFS is used to traverse a graph, performing some logic at each node.
+
+**Time Complexity:** O(V + E)
+**Space Complexity:** O(V)
+
+## Graph: DFS (Iterative)
+
+```python
+def fn(graph):
+    stack = [START_NODE]
+    seen = {START_NODE}
+    ans = 0
+
+    while stack:
+        node = stack.pop()
+        # do some logic
+        for neighbor in graph[node]:
+            if neighbor not in seen:
+                seen.add(neighbor)
+                stack.append(neighbor)
+
+    return ans
+```
+
+**Explanation:** Iterative DFS uses a stack to simulate the recursive call stack, useful for avoiding recursion depth limits.
+
+**Time Complexity:** O(V + E)
+**Space Complexity:** O(V)
+
+## Graph: BFS
+
+```python
+from collections import deque
+
+def fn(graph):
+    queue = deque([START_NODE])
+    seen = {START_NODE}
+    ans = 0
+
+    while queue:
+        node = queue.popleft()
+        # do some logic
+        for neighbor in graph[node]:
+            if neighbor not in seen:
+                seen.add(neighbor)
+                queue.append(neighbor)
+
+    return ans
+```
+
+**Explanation:** BFS is used to traverse a graph level by level, useful for finding the shortest path in unweighted graphs.
+
+**Time Complexity:** O(V + E)
+**Space Complexity:** O(V)
+
+## Find Top K Elements with Heap
+
+```python
+import heapq
+
+def fn(arr, k):
+    heap = []
+    for num in arr:
+        # do some logic to push onto heap according to problem's criteria
+        heapq.heappush(heap, (CRITERIA, num))
+        if len(heap) > k:
+            heapq.heappop(heap)
+
+    return [num for num in heap]
+```
+
+**Explanation:** This pattern is used to find the top K elements in an array using a min-heap or max-heap.
+
+**Time Complexity:** O(n log k)
+**Space Complexity:** O(k)
 
 ## Binary Search
 
-Used for searching in sorted arrays.
-
-**Time Complexity:** O(log N)
-
 ```python
-# Example: Binary Search
-
-def binary_search(arr, target):
-    left, right = 0, len(arr) - 1
+def fn(arr, target):
+    left = 0
+    right = len(arr) - 1
     while left <= right:
         mid = (left + right) // 2
         if arr[mid] == target:
-            return mid
-        elif arr[mid] < target:
-            left = mid + 1
-        else:
+            # do something
+            return
+        if arr[mid] > target:
             right = mid - 1
-    return -1
+        else:
+            left = mid + 1
+
+    # left is the insertion point
+    return left
 ```
 
----
+**Explanation:** Binary search is used to find an element in a sorted array or the insertion point for a target value.
 
-## Topological Sort
+**Time Complexity:** O(log n)
+**Space Complexity:** O(1)
 
-Used for scheduling tasks and dependency resolution.
-
-**Time Complexity:** O(V + E)
+## Binary Search: Duplicate Elements, Left-Most Insertion Point
 
 ```python
-# Example: Topological Sort using Kahn’s Algorithm
-from collections import deque
+def fn(arr, target):
+    left = 0
+    right = len(arr)
+    while left < right:
+        mid = (left + right) // 2
+        if arr[mid] >= target:
+            right = mid
+        else:
+            left = mid + 1
 
-def topological_sort(graph):
-    in_degree = {node: 0 for node in graph}
-    for node in graph:
-        for neighbor in graph[node]:
-            in_degree[neighbor] += 1
-    queue = deque([node for node in in_degree if in_degree[node] == 0])
-    order = []
-    while queue:
-        node = queue.popleft()
-        order.append(node)
-        for neighbor in graph[node]:
-            in_degree[neighbor] -= 1
-            if in_degree[neighbor] == 0:
-                queue.append(neighbor)
-    return order
+    return left
 ```
 
----
+**Explanation:** This variant of binary search finds the left-most insertion point in an array with duplicate elements.
+
+**Time Complexity:** O(log n)
+**Space Complexity:** O(1)
+
+## Binary Search: Duplicate Elements, Right-Most Insertion Point
+
+```python
+def fn(arr, target):
+    left = 0
+    right = len(arr)
+    while left < right:
+        mid = (left + right) // 2
+        if arr[mid] > target:
+            right = mid
+        else:
+            left = mid + 1
+
+    return left
+```
+
+**Explanation:** This variant of binary search finds the right-most insertion point in an array with duplicate elements.
+
+**Time Complexity:** O(log n)
+**Space Complexity:** O(1)
+
+## Binary Search: For Greedy Problems
+
+```python
+def fn(arr):
+    def check(x):
+        # this function is implemented depending on the problem
+        return BOOLEAN
+
+    left = MINIMUM_POSSIBLE_ANSWER
+    right = MAXIMUM_POSSIBLE_ANSWER
+    while left <= right:
+        mid = (left + right) // 2
+        if check(mid):
+            right = mid - 1
+        else:
+            left = mid + 1
+
+    return left
+```
+
+**Explanation:** This pattern is used for problems where you need to find the minimum or maximum value that satisfies a certain condition.
+
+**Time Complexity:** O(log n)
+**Space Complexity:** O(1)
+
+## Backtracking
+
+```python
+def backtrack(curr, OTHER_ARGUMENTS...):
+    if (BASE_CASE):
+        # modify the answer
+        return
+
+    ans = 0
+    for (ITERATE_OVER_INPUT):
+        # modify the current state
+        ans += backtrack(curr, OTHER_ARGUMENTS...)
+        # undo the modification of the current state
+
+    return ans
+```
+
+**Explanation:** Backtracking is used to explore all possible solutions by building candidates incrementally and abandoning them if they don't satisfy the condition.
+
+**Time Complexity:** O(2^n) (typically exponential)
+**Space Complexity:** O(n)
+
+## Dynamic Programming: Top-Down Memoization
+
+```python
+def fn(arr):
+    def dp(STATE):
+        if BASE_CASE:
+            return 0
+
+        if STATE in memo:
+            return memo[STATE]
+
+        ans = RECURRENCE_RELATION(STATE)
+        memo[STATE] = ans
+        return ans
+
+    memo = {}
+    return dp(STATE_FOR_WHOLE_INPUT)
+```
+
+**Explanation:** Top-down DP with memoization is used to solve problems by breaking them down into subproblems and caching the results to avoid redundant calculations.
+
+**Time Complexity:** O(n) (depends on the problem)
+**Space Complexity:** O(n)
+
+## Build a Trie
+
+```python
+class TrieNode:
+    def __init__(self):
+        self.data = None
+        self.children = {}
+
+def fn(words):
+    root = TrieNode()
+    for word in words:
+        curr = root
+        for c in word:
+            if c not in curr.children:
+                curr.children[c] = TrieNode()
+            curr = curr.children[c]
+        # at this point, you have a full word at curr
+        # you can perform more logic here to give curr an attribute if you want
+
+    return root
+```
+
+**Explanation:** A trie is a tree-like data structure used to store strings, useful for prefix-based searches.
+
+**Time Complexity:** O(m _ n) (where m is the length of the longest word and n is the number of words)
+**Space Complexity:** O(m _ n)
+
+## Dijkstra's Algorithm
+
+```python
+from math import inf
+from heapq import *
+
+distances = [inf] * n
+distances[source] = 0
+heap = [(0, source)]
+
+while heap:
+    curr_dist, node = heappop(heap)
+    if curr_dist > distances[node]:
+        continue
+
+    for nei, weight in graph[node]:
+        dist = curr_dist + weight
+        if dist < distances[nei]:
+            distances[nei] = dist
+            heappush(heap, (dist, nei))
+```
+
+**Explanation:** Dijkstra's algorithm is used to find the shortest path from a source node to all other nodes in a weighted graph.
+
+**Time Complexity:** O((V + E) log V)
+**Space Complexity:** O(V)
 
 ## References
 
-This document is inspired by the LeetCode patterns guide available at:
-
-- [LeetCode Patterns Cheatsheet](https://leetcode.com/)
+- [LICC Algorithm Templates](https://leetcode.com/explore/interview/card/cheatsheets/720/resources/4723/)
