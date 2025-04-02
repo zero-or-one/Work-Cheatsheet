@@ -33,5 +33,3 @@ This directory contains fundamental concepts, techniques, and best practices in 
 - Activation Functions: Non-linear functions that enable complex pattern learning
 - Backpropagation: Algorithm for training neural networks
 - Network Architectures: Different ways to structure neural networks
-
-Note: Detailed explanations for each topic can be found in their respective markdown files in this directory.
