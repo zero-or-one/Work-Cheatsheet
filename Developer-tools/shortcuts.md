@@ -24,7 +24,7 @@
 - **Switch Between Terminals**: `Ctrl + Tab` (Windows/Linux) or `Cmd + Tab` (Mac)
 - **Switch Between CL Terminals**: `Ctrl + Alt + arrows` (Windows/Linux) or `Cmd + Alt + arrows` (Mac)
 - **Split Terminal**: `Ctrl + \` (Windows/Linux) or `Cmd + \` (Mac)
-- **Navigate Between Terminal Panes**: `Ctrl + PgUp / PgDn` (Windows/Linux) or `Cmd + ↑ / Cmd + ↓` (Mac)
+- **Navigate Between Terminal Panels**: `Ctrl + PgUp / PgDn` (Windows/Linux) or `Cmd + ↑ / Cmd + ↓` (Mac)
 - **Close Terminal**: `Ctrl + Shift + W` (Windows/Linux) or `Cmd + Shift + W` (Mac)
 
 ## **VSCode Code Management**
