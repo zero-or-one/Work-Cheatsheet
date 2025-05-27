@@ -506,66 +506,48 @@ def fn(arr):
 class TrieNode:
     def __init__(self):
         self.children = [None] * 26
-        self.isEndOfWord = False
+        self.isLeaf = False
 
-# Method to insert a key into the Trie
-def insert(root, key):
 
-    # Initialize the curr pointer with the root node
-    curr = root
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
 
-    # Iterate across the length of the string
-    for c in key:
+    # Method to insert a key into the Trie
+    def insert(self, key):
+        curr = self.root
+        for c in key:
+            index = ord(c) - ord('a')
+            if curr.children[index] is None:
+                curr.children[index] = TrieNode()
+            curr = curr.children[index]
+        curr.isLeaf = True
 
-        # Check if the node exists for the
-        # current character in the Trie
-        index = ord(c) - ord('a')
-        if curr.children[index] is None:
+    # Method to search a key in the Trie
+    def search(self, key):
+        curr = self.root
+        for c in key:
+            index = ord(c) - ord('a')
+            if curr.children[index] is None:
+                return False
+            curr = curr.children[index]
+        return curr.isLeaf
 
-            # If node for current character does
-            # not exist then make a new node
-            new_node = TrieNode()
-
-            # Keep the reference for the newly
-            # created node
-            curr.children[index] = new_node
-
-        # Move the curr pointer to the
-        # newly created node
-        curr = curr.children[index]
-
-    # Mark the end of the word
-    curr.isEndOfWord = True
-
-# Method to search a key in the Trie
-def search(root, key):
-
-    # Initialize the curr pointer with the root node
-    curr = root
-
-    # Iterate across the length of the string
-    for c in key:
-
-        # Check if the node exists for the 
-        # current character in the Trie
-        index = ord(c) - ord('a')
-        if curr.children[index] is None:
-            return False
-
-        # Move the curr pointer to the 
-        # already existing node for the 
-        # current character
-        curr = curr.children[index]
-
-    # Return true if the word exists 
-    # and is marked as ending
-    return curr.isEndOfWord
+    # Method to check if a prefix exists in the Trie
+    def isPrefix(self, prefix):
+        curr = self.root
+        for c in prefix:
+            index = ord(c) - ord('a')
+            if curr.children[index] is None:
+                return False
+            curr = curr.children[index]
+        return True
 ```
 
 **Explanation:** A trie is a tree-like data structure used to store strings, useful for prefix-based searches.
 
-**Time Complexity:** O(m _ n) (where m is the length of the longest word and n is the number of words)
-**Space Complexity:** O(m _ n)
+**Time Complexity:** Insert O(n) (where n is the length of words), Search O(n), Prefix Search O(n)
+**Space Complexity:** Insert O(n) (where n is the length of words), Search O(1), Prefix Search O(1)
 
 ## Dijkstra's Algorithm
 
