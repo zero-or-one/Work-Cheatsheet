@@ -505,21 +505,61 @@ def fn(arr):
 ```python
 class TrieNode:
     def __init__(self):
-        self.data = None
-        self.children = {}
+        self.children = [None] * 26
+        self.isEndOfWord = False
 
-def fn(words):
-    root = TrieNode()
-    for word in words:
-        curr = root
-        for c in word:
-            if c not in curr.children:
-                curr.children[c] = TrieNode()
-            curr = curr.children[c]
-        # at this point, you have a full word at curr
-        # you can perform more logic here to give curr an attribute if you want
+# Method to insert a key into the Trie
+def insert(root, key):
 
-    return root
+    # Initialize the curr pointer with the root node
+    curr = root
+
+    # Iterate across the length of the string
+    for c in key:
+
+        # Check if the node exists for the
+        # current character in the Trie
+        index = ord(c) - ord('a')
+        if curr.children[index] is None:
+
+            # If node for current character does
+            # not exist then make a new node
+            new_node = TrieNode()
+
+            # Keep the reference for the newly
+            # created node
+            curr.children[index] = new_node
+
+        # Move the curr pointer to the
+        # newly created node
+        curr = curr.children[index]
+
+    # Mark the end of the word
+    curr.isEndOfWord = True
+
+# Method to search a key in the Trie
+def search(root, key):
+
+    # Initialize the curr pointer with the root node
+    curr = root
+
+    # Iterate across the length of the string
+    for c in key:
+
+        # Check if the node exists for the 
+        # current character in the Trie
+        index = ord(c) - ord('a')
+        if curr.children[index] is None:
+            return False
+
+        # Move the curr pointer to the 
+        # already existing node for the 
+        # current character
+        curr = curr.children[index]
+
+    # Return true if the word exists 
+    # and is marked as ending
+    return curr.isEndOfWord
 ```
 
 **Explanation:** A trie is a tree-like data structure used to store strings, useful for prefix-based searches.
