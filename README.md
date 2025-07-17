@@ -1,33 +1,31 @@
 # Work Cheatsheet
 
-A comprehensive collection of notes, guides, and references for Machine Learning, Software Development, and Data Science topics.
+A comprehensive collection of notes, guides, and references for Machine Learning, Software Development, and Data Science topics. \
+I am gonna finish it, I promise.
 
 ## Contents
 
 ### Machine Learning
 
-- [ML Basics](ML-basics/) - Fundamental concepts and techniques in Machine Learning
-- [LLMs](LLMs/) - Large Language Models concepts and implementations
-- [Simple Models](Simple-models/) - Basic ML model implementations and examples
-- [Training and Fine-tuning](Training-and-finetuning/) - Guides for model training and fine-tuning
-- [Inference](Inference/) - Model inference and deployment strategies
-
-### Natural Language Processing
-
-- [GEC](GEC/) - Grammar Error Correction
-- [STT](STT/) - Speech-to-Text processing
-- [TTS](TTS/) - Text-to-Speech synthesis
+- [ML_Basics](ML-Basics/): Fundamental concepts and techniques in Machine Learning
+- [NLP]: Natural Language Processing
+- [LLMs](LLMs/): Large Language Models concepts and implementations
+- [Simple Models](Simple-models/): Basic ML model implementations and examples
+- [Training and Fine-tuning](Training-and-Finetuning/): Guides for model training and fine-tuning
+- [Inference](Inference/): Model inference and deployment strategies
+- [Models](Models): Specific model architectures
+- [Research](Research): General strategies and advices for doing ML research
 
 ### Software Development
 
-- [Data Structures and Algorithms](Data-Structures-and-Algorithms/) - Common DS&A implementations and problems
-- [Developer Tools](Developer-tools/) - Useful development tools and configurations
-- [Languages](Languages/) - Programming language specific notes and examples
+- [Developer Tools](Developer-tools/): Useful development tools and configurations
+- [Data Structures and Algorithms](Data-Structures-and-Algorithms/): Common DS&A implementations and problems
+- [Deployment](Deployment/): Deployment strategies and infrastructure
 
-### Data Engineering
+### Data Science
 
-- [Data Processing](Data-processing/) - Data processing and ETL pipelines
-- [Deployment](Deployment/) - Deployment strategies and infrastructure
+- [Data Processing](Data-processing/): Data processing and ETL pipelines
+- [Languages](Languages/): Programming language specific notes and examples
 
 ## How to Use
 
