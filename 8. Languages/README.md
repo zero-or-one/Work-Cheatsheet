@@ -1,3 +1,5 @@
+# General Information
+
 ## Words and Sounds
 
 - **Phoneme**: the smallest unit of sound in speech that distinguishes meaning (e.g., /p/ in "pat").
