@@ -2,7 +2,6 @@
 
 Data structures are ways to store and organize data efficiently. They determine the operations that can be performed and their efficiency in terms of time and space complexity.
 
-## ![Data Structures](../images/data_structures.png)
 
 ## 1. Arrays (Dynamic Array/List)
 

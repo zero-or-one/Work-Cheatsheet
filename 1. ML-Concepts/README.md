@@ -1,5 +1,0 @@
-# General Information
-
-## Learning Types
-
-##

@@ -7,33 +7,19 @@ I am gonna finish it, I promise.
 
 ### Machine Learning
 
-- [ML_Basics](ML-Basics/): Fundamental concepts and techniques in Machine Learning
-- [NLP]: Natural Language Processing
-- [LLMs](LLMs/): Large Language Models concepts and implementations
-- [Simple Models](Simple-models/): Basic ML model implementations and examples
-- [Training and Fine-tuning](Training-and-Finetuning/): Guides for model training and fine-tuning
-- [Inference](Inference/): Model inference and deployment strategies
-- [Models](Models): Specific model architectures
-- [Research](Research): General strategies and advices for doing ML research
+- [ML Concepts](1.%20ML-Concepts/): Core ML concepts including activations, losses, metrics, evaluation, training, and LLMs
+- [Neural Networks](3.%20Neural-Networks/): Neural network architectures and adapters
+- [Research](5.%20Research/): Personal advice and strategies for ML research
 
 ### Software Development
 
-- [Developer Tools](Developer-tools/): Useful development tools and configurations
-- [Data Structures and Algorithms](Data-Structures-and-Algorithms/): Common DS&A implementations and problems
-- [Deployment](Deployment/): Deployment strategies and infrastructure
+- [Developer Tools](7.%20Developer-Tools/): Git, Bash, SSH, and useful shortcuts
+- [Data Structures and Algorithms](6.%20Data-Structures-and-Algorithms/): Common DS&A implementations and Big O notation
+- [Deployment](4.%20Deployment/): Processing units and quantization strategies
 
-### Data Science
+### Languages
 
-- [Data Processing](Data-processing/): Data processing and ETL pipelines
-- [Languages](Languages/): Programming language specific notes and examples
-
-## How to Use
-
-Each directory contains specific documentation, code examples, and best practices for its respective topic. Navigate to the relevant section to find detailed information and practical examples.
-
-## Contributing
-
-Feel free to add new sections, improve existing documentation, or fix errors. Please maintain the existing structure and format when adding new content.
+- [Languages](8.%20Languages/): Notes on English, Korean, Russian, and Tajik
 
 ## License
 
